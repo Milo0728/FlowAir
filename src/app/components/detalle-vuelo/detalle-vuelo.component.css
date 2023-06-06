@@ -1,0 +1,11 @@
+.card {
+    font-size: 1.2em;
+}
+
+.container {
+  min-height: 73vh;
+}
+
+p {
+  margin-top: 2rem;
+}

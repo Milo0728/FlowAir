@@ -1,0 +1,25 @@
+.footer {
+    background-color: #fff;
+    color: #0077be;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+
+    /* Ajusta la altura del footer para que no cubra el contenido anterior */
+}
+
+.footer-text {
+    margin: 0;
+}
+
+.footer-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #0077be;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-icon:hover {
+    transform: translateY(-5px);
+}

@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="offset">
+      <h1>Detalles del Vuelo #<strong>{{ vuelo.idVuelo }}</strong> con dirección a <strong>{{
+          getUbicacionAeropuerto(vuelo.idAeropuertoDestino) }}</strong></h1>
+      <hr>
+
+      <!-- Mostrar detalles del vuelo aquí -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4 class="card-title"><strong>Vuelo #{{ vuelo.idVuelo }}</strong></h4>
+          <hr>
+          <div class="row mb-2">
+            <div class="col">
+              <p class="card-text"><strong>Origen:</strong> {{ getNombreAeropuerto(vuelo.idAeropuertoOrigen) }}
+                ({{getUbicacionAeropuerto(vuelo.idAeropuertoOrigen)}})</p>
+            </div>
+            <div class="col">
+              <p class="card-text"><strong>Destino:</strong> {{ getNombreAeropuerto(vuelo.idAeropuertoDestino)}}
+                ({{getUbicacionAeropuerto(vuelo.idAeropuertoDestino)}})</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="card-text"><strong>Precio: </strong> <span>{{ vuelo.precio | currency }} COP</span></p>
+              <p class="card-text"><strong>Fecha de salida: </strong> <span>{{ vuelo.fechaHoraSalida | date:'medium'
+                  }}</span></p>
+              <p class="card-text mb-5"><strong>Fecha de llegada: </strong> <span>{{ vuelo.fechaHoraLlegada | date:'medium'
+                  }}</span></p>
+            </div>
+            <div class="col">
+              <p class="card-text"><strong>Precio Asiento Preferencial: </strong> <span>{{
+                  vuelo.precioAsientoPreferencial | currency }} COP</span></p>
+              <p class="card-text"><strong>Precio Asiento Vip: </strong> <span>{{ vuelo.precioAsientoVip | currency }}
+                  COP</span></p>
+              <p class="card-text"><strong>Precio Asiento Turista: </strong> <span>{{ vuelo.precioAsientoTurista |
+                  currency }} COP</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between" style="gap: 1rem;">
+        <a routerLink="/vuelos" class="btn btn-secondary btn-lg w-100">Volver</a>
+        <a (click)="openDialog(vuelo.idVuelo)" class="btn btn-primary btn-lg w-100">Hacer Reserva</a>
+      </div>
+
+    </div>
+  </div>
+</div>

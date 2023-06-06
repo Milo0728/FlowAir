@@ -1,0 +1,63 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Modificar': 'Añadir'}} Aeropuerto</h1>
+</div>
+<form [formGroup]="aeropuertoForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Ej. Aeropuerto Internacional Alfonso Bonilla Aragon" formControlName="nombre">
+                    <mat-error *ngIf="aeropuertoForm.get('nombre').hasError('required')">El nombre es requerido</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('nombre').hasError('minlength')">El nombre debe tener al menos 5 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('nombre').hasError('maxlength')">El nombre debe tener como máximo 50 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('nombre').hasError('pattern')">El nombre contiene caracteres inválidos</mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Iata</mat-label>
+                    <input matInput type="text" placeholder="Ej. CLO" formControlName="iata">
+                    <mat-error *ngIf="aeropuertoForm.get('iata').hasError('required')">La IATA es requerida</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('iata').hasError('minlength')">La IATA debe tener 3 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('iata').hasError('maxlength')">La IATA debe tener 3 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('iata').hasError('pattern')">La IATA contiene caracteres inválidos</mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Ubicacion</mat-label>
+                    <input matInput type="text" placeholder="Ej. Cali" formControlName="ubicacion">
+                    <mat-error *ngIf="aeropuertoForm.get('ubicacion').hasError('required')">La ubicación es requerida</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('ubicacion').hasError('minlength')">La ubicación debe tener al menos 3 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('ubicacion').hasError('maxlength')">La ubicación debe tener como máximo 50 caracteres</mat-error>
+                    <mat-error *ngIf="aeropuertoForm.get('ubicacion').hasError('pattern')">La ubicación contiene caracteres inválidos</mat-error>
+                  </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="estado">
+                  <mat-option value="Activo">Activo</mat-option>
+                  <mat-option value="Inactivo">Inactivo</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+
+            <!-- <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>Imagen de la ciudad</mat-label>
+                    <input matInput type="text" placeholder="Ej. Enlace de la imagen" formControlName="imagenCiudad">
+                </mat-form-field>
+            </div> -->
+
+
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!aeropuertoForm.valid" >{{data ? 'Actualizar': 'Guardar'}}</button>
+    </div>
+
+</form>

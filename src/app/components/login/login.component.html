@@ -1,0 +1,25 @@
+<div class="contenedor">
+  <div class="container d-flex justify-content-center mt-5">
+    <div class="login-card">
+      <h2 class="login-title">Iniciar sesión</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Correo</mat-label>
+          <input matInput formControlName="correo" type="email" required>
+          <mat-error *ngIf="loginForm.get('correo').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="loginForm.get('correo').errors?.['correoNoDisponible']">Correo incorrecto</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Cédula</mat-label>
+          <input type="password" matInput formControlName="cedula" maxlength="10" required>
+          <mat-error *ngIf="loginForm.get('cedula').hasError('required')">Campo requerido</mat-error>
+          <mat-error *ngIf="loginForm.get('cedula').errors?.['cedulaNoDisponible']">Cedula incorrecta</mat-error>
+        </mat-form-field>
+        <div class="d-grid gap-2 mb-3">
+          <button class="btn login-button" type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+        </div>
+      </form>
+      <p class="register-link">¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
+    </div>
+  </div>
+</div>

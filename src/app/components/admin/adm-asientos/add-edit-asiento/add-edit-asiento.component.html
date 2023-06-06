@@ -1,0 +1,64 @@
+<div mat-dialog-title>
+  <h1>{{data ? 'Modificar' : 'Añadir'}} Asiento</h1>
+</div>
+<form [formGroup]="asientoForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+
+      <mat-form-field appearance="outline">
+        <mat-label>ID Avión</mat-label>
+        <mat-select formControlName="idAvion">
+          <mat-option *ngFor="let avion of aviones" disabled [value]="avion.idAvion">
+            {{ avion.idAvion }} - {{ avion.aerolineaAvion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo Asiento</mat-label>
+          <mat-select formControlName="idTipoa">
+            <mat-option value="Preferencial">Preferencial</mat-option>
+            <mat-option value="Vip">Vip</mat-option>
+            <mat-option value="Turista">Turista</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="asientoForm.get('idTipoa').hasError('required')">Tipo Asiento es requerido</mat-error>
+      </div>
+
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Ubicacion</mat-label>
+          <mat-select formControlName="ubicacion">
+            <mat-option value="Pasillo">Pasillo</mat-option>
+            <mat-option value="Central">Central</mat-option>
+            <mat-option value="Ventana">Ventana</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="asientoForm.get('ubicacion').hasError('required')">Ubicacion es requerida</mat-error>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Precio asiento</mat-label>
+        <input matInput type="number" min="0" placeholder="Ej. 200000" formControlName="precio">
+        <mat-error *ngIf="asientoForm.get('precio').hasError('required')">Precio asiento es requerido</mat-error>
+        <mat-error *ngIf="asientoForm.get('precio').hasError('min')">El precio debe ser mayor o igual a 0</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option value="Activo">Activo</mat-option>
+          <mat-option value="Inactivo">Inactivo</mat-option>
+        </mat-select>
+        <mat-error *ngIf="asientoForm.get('estado').hasError('required')">Estado es requerido</mat-error>
+      </mat-form-field>
+
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!asientoForm.valid">{{data ? 'Actualizar' :
+      'Guardar'}}</button>
+  </div>
+</form>

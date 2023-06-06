@@ -1,0 +1,80 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Modificar': 'Añadir'}} Usuario</h1>
+</div>
+<form [formGroup]="usuarioForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <!-- Cedula -->
+            <mat-form-field appearance="outline">
+                <mat-label>Cedula</mat-label>
+                <input matInput type="text" placeholder="Ej. 2222222222" formControlName="cedula" minlength="10"
+                    maxlength="10">
+                <mat-error *ngIf="usuarioForm.get('cedula').hasError('required')">Cedula es requerida</mat-error>
+                <mat-error *ngIf="usuarioForm.get('cedula').hasError('pattern')">Cedula debe contener 10 dígitos
+                    numéricos</mat-error>
+                <mat-error *ngIf="usuarioForm.get('cedula').hasError('validarCedula')">La cédula ya está
+                    registrada</mat-error>
+            </mat-form-field>
+
+            <!-- Nombre -->
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Ej. Arturo" formControlName="nombre" minlength="2"
+                    maxlength="50" (input)="capitalizeInput('nombre')">
+                <mat-error *ngIf="usuarioForm.get('nombre').hasError('required')">El nombre es requerido</mat-error>
+                <mat-error *ngIf="usuarioForm.get('nombre').hasError('pattern')">Nombre inválido</mat-error>
+            </mat-form-field>
+
+            <!-- Apellido -->
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" placeholder="Ej. Perez" formControlName="apellido" minlength="2"
+                    maxlength="50" (input)="capitalizeInput('apellido')">
+                <mat-error *ngIf="usuarioForm.get('apellido').hasError('required')">El apellido es requerido</mat-error>
+                <mat-error *ngIf="usuarioForm.get('apellido').hasError('pattern')">Apellido inválido</mat-error>
+            </mat-form-field>
+
+
+            <!-- Correo -->
+            <mat-form-field appearance="outline">
+                <mat-label>Correo</mat-label>
+                <input matInput type="text" placeholder="Ej. correo@example.com" formControlName="correo">
+                <mat-error *ngIf="usuarioForm.get('correo').hasError('required')">Correo es requerido</mat-error>
+                <mat-error *ngIf="usuarioForm.get('correo').hasError('pattern')">El formato del correo electrónico no es
+                    válido</mat-error>
+            </mat-form-field>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Rol</mat-label>
+                        <mat-select formControlName="idRolusuario">
+                            <mat-option value="Cliente">Cliente</mat-option>
+                            <mat-option value="Administrador">Administrador</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+
+                <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Estado</mat-label>
+                        <mat-select formControlName="estado">
+                            <mat-option value="Activo">Activo</mat-option>
+                            <mat-option value="Inactivo">Inactivo</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!usuarioForm.valid">{{data ? 'Actualizar':
+            'Guardar'}}</button>
+    </div>
+
+</form>

@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.action {
+    padding: 0 25px 20px;
+}
+
+.action button {
+    flex: 1;
+}
+
+.colorPrincipal {
+    color: #0077be;
+}
+
+.contenedor-tabla {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.mat-table-responsive {
+    overflow-x: auto;
+}
+
+.btn-primary {
+    background-color: rgba(0, 119, 190, 0.8);
+    border-color: rgba(0, 119, 190, 0.8);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgba(0, 107, 161, 0.8);
+    border-color: rgba(0, 107, 161, 0.8);
+}
+
+body {
+    overflow-x: hidden;
+}
+

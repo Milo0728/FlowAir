@@ -1,0 +1,36 @@
+<h1 class="text-center mt-4">Sección vuelos</h1>
+<div class="row justify-content-center mt-3">
+  <div class="col-12 col-lg-10 col-xl-8">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let vuelo of vuelos">
+        <mat-card>
+          <div class="image-container">
+            <img mat-card-image src="{{getImagen()}}" alt="Imagen del vuelo" class="card-img-top">
+            <a (click)="verDetalleVuelo(vuelo.id)">
+              <div class="overlay">
+                <p>{{getUbicacionAeropuerto(vuelo.idAeropuertoDestino)}}</p>
+              </div>
+            </a>
+          </div>
+          <mat-card-header>
+            <h3 class="mb-0 d-flex align-items-center text-nowrap">
+              {{ getUbicacionAeropuerto(vuelo.idAeropuertoOrigen) }}
+              <mat-icon>arrow_forward</mat-icon>
+              {{ getUbicacionAeropuerto(vuelo.idAeropuertoDestino) }}
+            </h3>
+
+          </mat-card-header>
+          <mat-card-content>
+            <p><mat-icon>flight_takeoff</mat-icon> Salida: {{vuelo.fechaHoraSalida | date:'short'}}</p>
+            <p><mat-icon>flight_land</mat-icon> Llegada: {{vuelo.fechaHoraLlegada | date:'short'}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary" color="primary" (click)="verDetalleVuelo(vuelo.idVuelo)">Ver
+                vuelo</button>
+              <h4 class="mb-0"> {{vuelo.precio | currency}}</h4>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

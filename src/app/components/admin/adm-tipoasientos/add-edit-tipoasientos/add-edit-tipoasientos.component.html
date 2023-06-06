@@ -1,0 +1,30 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Modificar': 'Añadir'}} Tipo de Asiento</h1>
+</div>
+<form [formGroup]="tipoAsientoForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre del tipo de asiento</mat-label>
+                <input matInput type="text" placeholder="Ej. Pobre" formControlName="descripcion">
+            </mat-form-field>
+            <div class="col">
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado">
+                        <mat-option value="Activo">Activo</mat-option>
+                        <mat-option value="Inactivo">Inactivo</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Actualizar': 'Guardar'}}</button>
+    </div>
+
+</form>

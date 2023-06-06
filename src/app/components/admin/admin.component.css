@@ -1,0 +1,18 @@
+.opciones-contenedor {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    margin: 63px auto;
+}
+
+.btn-adm{
+    background-color: #fff;
+    border-color: #0077be;
+    color: #0077be;
+    transition: .2s ease-in-out;
+}
+
+.btn-adm:hover {
+    background-color: #0077be;
+    color: #fff;
+}

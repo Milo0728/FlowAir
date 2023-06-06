@@ -1,0 +1,45 @@
+<div class="container mb-3 d-flex justify-content-center mt-5">
+  <div class="register-card">
+    <h2 class="register-title">Regístrate</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onFormSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Cédula</mat-label>
+        <input matInput formControlName="cedula" maxlength="10">
+        <mat-error *ngIf="registrationForm.get('cedula').hasError('required')">La cédula es requerida.</mat-error>
+        <mat-error *ngIf="registrationForm.get('cedula').hasError('validarCedula')">La cédula ya está registrada.</mat-error>
+        <mat-error *ngIf="registrationForm.get('cedula').hasError('pattern')">Cedula debe contener 10 dígitos
+          numéricos</mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre(s)</mat-label>
+            <input matInput formControlName="nombre">
+            <mat-error *ngIf="registrationForm.get('nombre').hasError('required')">El nombre es requerido</mat-error>
+            <mat-error *ngIf="registrationForm.get('nombre').hasError('pattern')">El nombre no debe contener caracteres especiales ni números</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido(s)</mat-label>
+            <input matInput formControlName="apellido">
+            <mat-error *ngIf="registrationForm.get('apellido').hasError('required')">El apellido es requerido</mat-error>
+            <mat-error *ngIf="registrationForm.get('apellido').hasError('pattern')">El apellido no debe contener caracteres especiales ni números</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo">
+        <mat-error *ngIf="registrationForm.get('correo').hasError('required')">El correo es requerido</mat-error>
+        <mat-error *ngIf="registrationForm.get('correo').hasError('pattern')">El correo no es válido</mat-error>
+      </mat-form-field>
+      <div class="d-grid gap-2 mb-3">
+        <button color="primary" class="btn register-button" [disabled]="registrationForm.invalid">Registrarse</button>
+      </div>
+
+    </form>
+    <p class="login-link">¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+{
+  "vuelos": [
+    {
+      "ruta": "../assets/img/vuelo1.jpg"
+    },
+    {
+      "ruta": "../assets/img/vuelo2.jpg"
+    },
+    {
+      "ruta": "../assets/img/vuelo3.jpg"
+    },
+    {
+      "ruta": "../assets/img/vuelo4.webp"
+    },
+    {
+      "ruta": "../assets/img/vuelo5.png"
+    },
+    {
+      "ruta": "../assets/img/vuelo6.jpg"
+    },
+    {
+      "ruta": "../assets/img/vuelo7.webp"
+    },
+    {
+      "ruta": "../assets/img/vuelo8.webp"
+    },
+    {
+      "ruta": "../assets/img/vuelo9.jpeg"
+    },
+    {
+      "ruta": "../assets/img/vuelo10.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo11.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo12.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo13.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo14.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo15.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo16.jpg"
+    }
+    ,
+    {
+      "ruta": "../assets/img/vuelo17.jpg"
+    }
+
+  ]
+}

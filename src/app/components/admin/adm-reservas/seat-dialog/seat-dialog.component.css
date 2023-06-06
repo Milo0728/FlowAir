@@ -1,0 +1,33 @@
+.seats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.seat-column {
+  width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.tipos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* span {
+  margin-bottom: 40px;
+} */
+
+button {
+  margin: 0 10px;
+}

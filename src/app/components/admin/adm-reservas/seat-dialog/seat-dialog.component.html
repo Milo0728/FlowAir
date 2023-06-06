@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Seleccione un asiento</h1>
+<div mat-dialog-content>
+    <div class="seats-container">
+        <div class="row">
+            <div class="col">
+                <div *ngFor="let row of seats" class="seat-row">
+                    <div *ngFor="let seat of row" class="seat-column">
+                        <button mat-flat-button color="primary" (click)="selectSeat(seat)">
+                            {{ seat }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col tipos">
+                <span>Preferencial</span>
+                <span>Preferencial</span>
+                <span>Vip</span>
+                <span>Vip</span>
+                <span>Turista</span>
+                <span>Turista</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+</div>

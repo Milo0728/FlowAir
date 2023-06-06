@@ -1,0 +1,50 @@
+<div mat-dialog-title>
+  <h1>Realizar Reserva</h1>
+</div>
+<form [formGroup]="reservaForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>ID Avión</mat-label>
+          <mat-select formControlName="idAvion">
+            <mat-option *ngFor="let avion of aviones" [value]="avion.idAvion">
+              {{ avion.idAvion }} - {{avion.aerolineaAvion}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="reservaForm.get('idAvion').errors?.['required']">El ID del avión es requerido</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Ubicación</mat-label>
+          <mat-error *ngIf="reservaForm.get('ubicacion').errors?.['required']">La ubicación es requerida</mat-error>
+          <mat-error *ngIf="reservaForm.get('ubicacion').errors?.['asientoNoDisponible']">Asiento no
+            disponible</mat-error>
+          <input formControlName="ubicacion" matInput placeholder="Seleccione el asiento" [(ngModel)]="selectedSeat"
+            readonly (click)="openDialog(data.vueloId)" value="{{ selectedSeat }}">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Método de pago</mat-label>
+          <mat-select formControlName="estadoPago">
+            <mat-option value="Realizar pago">Realizar pago</mat-option>
+            <mat-option value="Pagar despues">Pagar después</mat-option>
+          </mat-select>
+          <mat-error *ngIf="reservaForm.get('estadoPago').errors?.['required']">El estado de pago es
+            requerido</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!reservaForm.valid">Hacer reserva</button>
+  </div>
+</form>

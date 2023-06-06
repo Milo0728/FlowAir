@@ -1,0 +1,61 @@
+<div class="filtrador-container">
+  <div class="card shadow">
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-2">
+            <h2>Desde:</h2>
+            <mat-form-field class="example-full-width">
+              <mat-label>Ciudad origen</mat-label>
+              <input matInput placeholder="Ej: Cali">
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <h2>Hacia:</h2>
+            <mat-form-field class="example-full-width">
+              <mat-label>Ciudad origen</mat-label>
+              <input matInput placeholder="Ej: Cali">
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <h2>Pasajeros:</h2>
+            <mat-form-field appearance="fill">
+              <mat-label>Total pasajeros</mat-label>
+              <mat-select>
+                <ng-container *ngFor="let option of options">
+                  <mat-option [value]="option.value">{{option.label}}</mat-option>
+                </ng-container>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <h2>Fecha Salida</h2>
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha Salida</mat-label>
+              <input matInput [matDatepicker]="departureDatepicker" placeholder="Seleccione una fecha" [min]="today"
+                [(ngModel)]="departureDate" (dateChange)="setMinArrivalDate()">
+              <mat-datepicker-toggle matSuffix [for]="departureDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #departureDatepicker></mat-datepicker>
+            </mat-form-field>
+
+
+          </div>
+          <div class="col-2">
+            <h2>Fecha Llegada</h2>
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha Llegada</mat-label>
+              <input matInput [matDatepicker]="arrivalDatepicker" placeholder="Seleccione una fecha"
+                [min]="minArrivalDate" [max]="maxDate">
+              <mat-datepicker-toggle matSuffix [for]="arrivalDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #arrivalDatepicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <h2>Busca tu vuelo!</h2>
+            <button class="btn btn-lg btn-success">Buscar vuelo</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

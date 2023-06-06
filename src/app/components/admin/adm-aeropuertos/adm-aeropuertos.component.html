@@ -1,0 +1,76 @@
+<div class="shadow bg-white mt-3 p-4">
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-dark btn-lg" routerLink="/admin">Volver al menú</button>
+    <h1>Administrar Aeropuertos</h1>
+    <button class="btn btn-success btn-lg" (click)="openAddEditAeropuertoForm()">Añadir Aeropuerto</button>
+  </div>
+</div>
+
+<div class="contenedor-tabla mb-4 mt-4">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 mat-table-responsive">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Buscar por id"> ID
+          Aeropuerto </th>
+        <td mat-cell *matCellDef="let row"> {{row.idAeropuerto}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Buscar por nombre"> Nombre
+        </th>
+        <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="iata">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Buscar por iata"> Iata
+        </th>
+        <td mat-cell *matCellDef="let row"> {{row.iata}} </td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="ubicacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Buscar por ubicacion">
+          Ubicacion </th>
+        <td mat-cell *matCellDef="let row"> {{row.ubicacion}} </td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Buscar por estado"> Estado
+        </th>
+        <td mat-cell *matCellDef="let row"> {{getEstado(row.estado)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="openEditForm(row)" style="color: #0077be;">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAeropuerto(row.idAeropuerto)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+.row .example-form-field {
+  margin-right: 20px;
+}
+
+.col h2 {
+  margin: 0;
+}
+
+.filtrador-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 1rem auto ;
+}
+
+.card {
+  border-radius: 0;
+}

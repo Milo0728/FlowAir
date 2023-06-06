@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Modificar': 'Añadir'}} Avion</h1>
+</div>
+<form [formGroup]="avionForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Aerolinea</mat-label>
+                <input matInput type="text" placeholder="Ej. Avianca" formControlName="aerolineaAvion" (input)="capitalizeInput('aerolineaAvion')">
+                <mat-error *ngIf="avionForm.get('aerolineaAvion').hasError('required')">Aerolinea es requerida</mat-error>
+                <mat-error *ngIf="avionForm.get('aerolineaAvion').hasError('pattern')">Aerolinea debe contener solo letras</mat-error>
+            </mat-form-field>
+            
+            
+
+            <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="estado">
+                    <mat-option value="Activo">Activo</mat-option>
+                    <mat-option value="Inactivo">Inactivo</mat-option>
+                </mat-select>
+                <mat-error *ngIf="avionForm.get('estado').hasError('required')">Estado es requerido</mat-error>
+            </mat-form-field>
+            
+
+
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!avionForm.valid">{{data ? 'Actualizar': 'Guardar'}}</button>
+    </div>
+</form>

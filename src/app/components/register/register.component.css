@@ -1,0 +1,44 @@
+/* Estilos para el formulario de registro */
+
+.register-card {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.register-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #0077be;
+}
+
+.register-button {
+  background-color: #0077be;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 16px;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.register-button:focus {
+  box-shadow: 0px 0px 5px #0077be;
+}
+
+.register-button:hover {
+  background-color: #005daa;
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.container {
+  min-height: 70vh;
+}
